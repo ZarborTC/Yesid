@@ -32,6 +32,15 @@
         .prev { left: 0; border-radius: 0 5px 5px 0; }
         .next { right: 0; border-radius: 5px 0 0 5px; }
         @keyframes fade { from { opacity: .4 } to { opacity: 1 } }
+
+        /* Estilos Menu Hamburguesa */
+        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background: #0056b3; text-align: center; padding: 20px 0; }
+            nav ul.active { display: flex; }
+            nav ul li { margin: 10px 0; }
+        }
     </style>
 </head>
 <body>
@@ -43,6 +52,7 @@
                 <p>Ingeniero Inspector</p>
             </div>
         </div>
+        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
         <nav>
             <ul>
                 <li><a href="#perfil">Perfil</a></li>
@@ -113,6 +123,10 @@
             });
             let newIndex = (activeIndex + n + items.length) % items.length;
             items[newIndex].classList.add('active');
+        }
+
+        function toggleMenu() {
+            document.querySelector('nav ul').classList.toggle('active');
         }
     </script>
 </body>
