@@ -1,58 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yesid - Portafolio de Servicios</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; padding-top: 100px; }
-        header { background: #0056b3; color: #fff; padding: 10px 5%; position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }
-        .brand { display: flex; align-items: center; gap: 15px; }
-        .brand img { height: 50px; border-radius: 50%; border: 2px solid #fff; }
-        .brand div { text-align: left; }
-        header h1 { margin: 0; font-size: 1.5rem; line-height: 1.2; }
-        header p { margin: 0; font-size: 0.9rem; opacity: 0.9; }
-        nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
-        nav ul li { margin-left: 20px; }
-        nav a { color: #fff; text-decoration: none; font-weight: bold; }
-        section { padding: 40px 20px; max-width: 900px; margin: auto; }
-        h2 { color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px; }
-        .project-card { background: #f9f9f9; border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px; }
-        .contact-info p { margin: 10px 0; }
-        footer { background: #333; color: #fff; text-align: center; padding: 10px 0; margin-top: 40px; }
-        
-        /* Estilos del Carrusel */
-        .carousel { position: relative; margin-top: 15px; max-width: 100%; }
-        .carousel-inner { position: relative; width: 100%; overflow: hidden; border-radius: 5px; }
-        .carousel-item { display: none; }
-        .carousel-item.active { display: block; animation: fade 0.5s; }
-        .carousel-item img { width: 100%; height: 300px; object-fit: cover; display: block; }
-        .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0,0,0,0.6); color: white; border: none; padding: 10px 15px; cursor: pointer; font-size: 18px; user-select: none; z-index: 2; }
-        .carousel-btn:hover { background-color: rgba(0,0,0,0.8); }
-        .prev { left: 0; border-radius: 0 5px 5px 0; }
-        .next { right: 0; border-radius: 5px 0 0 5px; }
-        @keyframes fade { from { opacity: .4 } to { opacity: 1 } }
-
-        /* Estilos Menu Hamburguesa */
-        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
-        @media (max-width: 768px) {
-            .menu-toggle { display: block; }
-            nav ul { display: none; flex-direction: column; width: 100%; position: absolute; top: 100%; left: 0; background: #0056b3; text-align: center; padding: 20px 0; }
-            nav ul.active { display: flex; }
-            nav ul li { margin: 10px 0; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="brand">
-            <img src="imagenes/logo1.webp" alt="Logo">
+            <img src="imagenes/logo1.webp" alt="Logo de Yesid">
             <div>
                 <h1>Yesid</h1>
                 <p>Ingeniero Inspector</p>
             </div>
         </div>
-        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+        <button class="theme-switch" onclick="toggleTheme()" aria-label="Cambiar tema">🌓</button>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">&#9776;</button>
         <nav>
             <ul>
                 <li><a href="#perfil">Perfil</a></li>
@@ -62,55 +28,129 @@
         </nav>
     </header>
 
-    <section id="perfil">
-        <h2>Perfil Profesional</h2>
-        <p>Hola, soy Yesid. Como Ingeniero Inspector, me dedico a asegurar la calidad, seguridad y cumplimiento normativo en proyectos de ingeniería. Cuento con amplia experiencia en supervisión técnica, control de materiales y gestión de riesgos en obra.</p>
+    <section id="perfil" class="fade-in">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <h2>Ingeniero Inspector Especialista en Calidad</h2>
+                <p class="hero-intro">
+                    Garantizo la excelencia técnica y normativa en cada proyecto. Mi enfoque combina precisión analítica
+                    con gestión eficiente en obra.
+                </p>
+
+                <div class="skills-container">
+                    <span class="skill-badge">👷 Inspección de Obras</span>
+                    <span class="skill-badge">📑 Normas Icontec/ISO</span>
+                    <span class="skill-badge">🏗️ Estructuras Metálicas</span>
+                    <span class="skill-badge">🔥 Soldadura AWS</span>
+                    <span class="skill-badge">🛣️ Pavimentos</span>
+                    <span class="skill-badge">📊 Auditoría Técnica</span>
+                </div>
+
+                <a href="#proyectos" class="btn-primary">Ver Portafolio</a>
+            </div>
+
+            <div class="hero-image-container">
+                <img src="imagenes/logo1.webp" alt="Yesid - Ingeniero Inspector" class="hero-image">
+            </div>
+        </div>
     </section>
 
-    <section id="proyectos">
+    <section id="proyectos" class="fade-in">
         <h2>Proyectos Realizados</h2>
-        <div class="project-card">
+
+        <article class="project-card">
             <h3>Inspección Estructural Edificio Central</h3>
-            <p>Supervisión de soldaduras y montaje de estructura metálica, asegurando cumplimiento con normas técnicas.</p>
+            <p>Supervisión de soldaduras y montaje de estructura metálica, asegurando cumplimiento con normas técnicas y
+                estándares de seguridad industrial.</p>
             <div class="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active"><img src="imagenes/foto (1).jpg" alt="Estructura"></div>
-                    <div class="carousel-item"><img src="imagenes/foto (1).webp" alt="Soldadura"></div>
-                    <div class="carousel-item"><img src="imagenes/foto (2).jpg" alt="Planos"></div>
+                    <div class="carousel-item active"><img src="imagenes/foto (1).jpg" alt="Estructura Metálica"
+                            onclick="openLightbox(this)"></div>
+                    <div class="carousel-item"><img src="imagenes/foto (1).webp" alt="Detalle de Soldadura"
+                            onclick="openLightbox(this)"></div>
+                    <div class="carousel-item"><img src="imagenes/foto (2).jpg" alt="Revisión de Planos"
+                            onclick="openLightbox(this)"></div>
                 </div>
-                <button class="carousel-btn prev" onclick="changeSlide(this, -1)">&#10094;</button>
-                <button class="carousel-btn next" onclick="changeSlide(this, 1)">&#10095;</button>
+                <button class="carousel-btn prev" onclick="changeSlide(this, -1)"
+                    aria-label="Anterior">&#10094;</button>
+                <button class="carousel-btn next" onclick="changeSlide(this, 1)"
+                    aria-label="Siguiente">&#10095;</button>
             </div>
-        </div>
-        <div class="project-card">
+        </article>
+
+        <article class="project-card">
             <h3>Auditoría Vial Ruta del Sol</h3>
-            <p>Control de calidad de pavimentos y revisión de ensayos de laboratorio para materiales granulares.</p>
+            <p>Control de calidad de pavimentos, revisión de ensayos de laboratorio para materiales granulares y
+                seguimiento a maquinaria pesada.</p>
             <div class="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active"><img src="imagenes/foto (3).jpg" alt="Pavimento"></div>
-                    <div class="carousel-item"><img src="imagenes/foto (4).jpg" alt="Laboratorio"></div>
-                    <div class="carousel-item"><img src="imagenes/foto (5).jpg" alt="Maquinaria"></div>
+                    <div class="carousel-item active"><img src="imagenes/foto (3).jpg" alt="Pavimentación en curso"
+                            onclick="openLightbox(this)"></div>
+                    <div class="carousel-item"><img src="imagenes/foto (4).jpg" alt="Ensayos de Laboratorio"
+                            onclick="openLightbox(this)"></div>
+                    <div class="carousel-item"><img src="imagenes/foto (5).jpg" alt="Maquinaria en obra"
+                            onclick="openLightbox(this)"></div>
                 </div>
-                <button class="carousel-btn prev" onclick="changeSlide(this, -1)">&#10094;</button>
-                <button class="carousel-btn next" onclick="changeSlide(this, 1)">&#10095;</button>
+                <button class="carousel-btn prev" onclick="changeSlide(this, -1)"
+                    aria-label="Anterior">&#10094;</button>
+                <button class="carousel-btn next" onclick="changeSlide(this, 1)"
+                    aria-label="Siguiente">&#10095;</button>
             </div>
-        </div>
+        </article>
     </section>
 
     <section id="contacto">
         <h2>Contacto</h2>
-        <div class="contact-info">
-            <p><strong>Email:</strong> contacto@yesid-ingenieria.com</p>
-            <p><strong>Teléfono:</strong> +57 300 123 4567</p>
-            <p>Estoy disponible para nuevos proyectos y consultorías.</p>
+        <div class="contact-grid">
+            <!-- Email Card -->
+            <div class="contact-card">
+                <span class="contact-icon">📧</span>
+                <h3>Correo Electrónico</h3>
+                <p>Para consultas detalladas y presupuestos.</p>
+                <a href="mailto:contacto@yesid-ingenieria.com" class="btn-secondary">Enviar Mensaje</a>
+            </div>
+
+            <!-- Phone Card -->
+            <div class="contact-card">
+                <span class="contact-icon">📱</span>
+                <h3>Teléfono / WhatsApp</h3>
+                <p>Disponible para consultas rápidas.</p>
+                <a href="tel:+573001234567" class="btn-secondary">Llamar Ahora</a>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Yesid - Ingeniero Inspector</p>
+        <p>&copy; 2026 Yesid - Ingeniero Inspector - Todos los derechos reservados</p>
     </footer>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/573008224947" class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
+        &#128172; <!-- Unicode symbol for speech bubble, can be replaced with SVG -->
+    </a>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="close-lightbox" onclick="closeLightbox(event)">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+
     <script>
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute("data-theme");
+            const newTheme = currentTheme === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+        }
+
+        // Initialize Theme
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        }
+
+        // Carousel Logic
         function changeSlide(button, n) {
             const carousel = button.parentElement;
             const items = carousel.querySelectorAll('.carousel-item');
@@ -128,6 +168,45 @@
         function toggleMenu() {
             document.querySelector('nav ul').classList.toggle('active');
         }
+
+        // Lightbox Logic
+        function openLightbox(img) {
+            const lightbox = document.getElementById("lightbox");
+            const lightboxImg = document.getElementById("lightbox-img");
+            lightbox.style.display = "block";
+            lightboxImg.src = img.src;
+        }
+
+        function closeLightbox(event) {
+            if (event.target === document.getElementById("lightbox") || event.target.className === "close-lightbox") {
+                document.getElementById("lightbox").style.display = "none";
+            }
+        }
+
+        // Intersection Observer for Fade-in Animations
+        document.addEventListener("DOMContentLoaded", function () {
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
     </script>
 </body>
+
 </html>
